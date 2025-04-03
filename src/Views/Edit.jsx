@@ -16,7 +16,7 @@ const {userId} = useParams();
 const editStudent = async () => {
 
    try{
-    const response = await axios.put(`http://localhost:5001/student/${userId}`, 
+    const response = await axios.put(`https://backend-student-server.onrender.com/student/${userId}`, 
         {
         name:student.name,
         city:student.city

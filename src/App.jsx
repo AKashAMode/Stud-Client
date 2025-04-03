@@ -12,7 +12,7 @@ const [students, setStudents] = useState([])
 
 const loadStudents = async () => {
   
-  const response = await axios.get("http://localhost:5001/allstudents");
+  const response = await axios.get("https://backend-student-server.onrender.com/allstudents");
   setStudents(response.data.data);
 
 }

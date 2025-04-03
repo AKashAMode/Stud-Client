@@ -11,7 +11,7 @@ const StudentCard = ({id, name,city, loadStudents}) => {
 
   const deleteStudent  = async ()=> {
 
-    const response = await axios.delete(`http://localhost:5001/student/${id}`);
+    const response = await axios.delete(`https://backend-student-server.onrender.com/student/${id}`);
   
     if(response.data.success){
       toast.success(response.data.message);
