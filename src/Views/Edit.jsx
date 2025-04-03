@@ -16,7 +16,7 @@ const {userId} = useParams();
 const editStudent = async () => {
 
    try{
-    const response = await axios.put(`https://backend-student-server.onrender.com/student/${userId}`, 
+    const response = await axios.put(`${import.meta.env.VITE_API_URL}/student/${userId}`, 
         {
         name:student.name,
         city:student.city
@@ -37,7 +37,7 @@ const editStudent = async () => {
 const loadStudents = async  () => {
 
     try{
-      const response = await axios.get(`https://backend-student-server.onrender.com/student/${userId}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/student/${userId}`);
       setStudent(response.data.data); 
     }catch(e){
         toast.error(e.response.data.message)
@@ -57,7 +57,7 @@ useEffect(()=> {
   return (
     <div>
          <div className='flex flex-col items-center justify-center h-screen bg-gray-200 '>
-          <h1 className='text-center p-4 border rounded-2xl m-2 text-2xl'>Edit Students({userId})</h1>
+          <h1 className='text-center bg-blue-600 text-white  p-4 border-none rounded-xl mt-6 text-2xl'>Edit Student</h1>
        
             <div className='flex flex-col items-center justify-center w-[350px] h-[400px] border-none rounded-xl p-5 m-auto mt-10 bg-white shadow-lg'>
        

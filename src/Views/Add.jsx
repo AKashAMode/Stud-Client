@@ -15,7 +15,7 @@ const Add = () => {
     const addStudent = async ()=> {
      
         try{    
-        const response = await axios.post("https://backend-student-server.onrender.com/student", {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/student`, {
             id:student.id,
             name:student.name,
             city:student.city
@@ -43,7 +43,7 @@ const Add = () => {
 
   return (
     <div className='flex flex-col items-center justify-center h-screen bg-gray-200 '>
-   <h1 className='text-center p-4 border rounded-2xl m-2 text-2xl'>Add Students</h1>
+   <h1 className='text-center p-4 bg-blue-600 text-white border-none rounded-xl mt-6 text-2xl'>Add Students</h1>
 
      <div className='flex flex-col items-center justify-center w-[350px] h-[400px] border-none rounded-xl p-5 m-auto mt-10 bg-white shadow-lg'>
 

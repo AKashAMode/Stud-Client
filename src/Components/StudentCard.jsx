@@ -11,7 +11,7 @@ const StudentCard = ({id, name,city, loadStudents}) => {
 
   const deleteStudent  = async ()=> {
 
-    const response = await axios.delete(`https://backend-student-server.onrender.com/student/${id}`);
+    const response = await axios.delete(`${import.meta.env.VITE_API_URL}/student/${id}`);
   
     if(response.data.success){
       toast.success(response.data.message);
@@ -23,17 +23,30 @@ const StudentCard = ({id, name,city, loadStudents}) => {
 
 
   return (
-    <div className='rounded-xl bg-yellow-200 py-4 w-[60%]  mt-4 flex justify-between px-4 items-center shadow-lg'>
-    <span className='px-4'>{id} - {name}</span>
-    <span className='px-4'>{city}</span>
-    <img src={DeleteIcon} alt="Delete" className='h-[30px] cursor-pointer'
-    onClick={deleteStudent}
-    />
-      <Link to={`/edit/${id}`}>
-      <img src={EditIcon} alt="Edit" className='h-[30px]  cursor-pointer' />
-      </Link>
-    <Toaster/>
+  <div className="bg-blue-200 shadow-md rounded-xl p-6 w-full max-w-xl mt-4 flex items-center justify-between">
+  <div className="flex-1">
+    <span className="text-lg font-semibold text-gray-800">{id}) {name}</span>
   </div>
+  <div className="flex-1 text-center">
+    <span className="text-gray-700 text-lg font-medium">{city}</span>
+  </div>
+  <div className="flex items-center space-x-6">
+    <img 
+      src={DeleteIcon} 
+      alt="Delete" 
+      className="h-8 w-8 cursor-pointer"
+      onClick={deleteStudent}
+    />
+    <Link to={`/edit/${id}`}>
+      <img 
+        src={EditIcon} 
+        alt="Edit" 
+        className="h-8 w-8 cursor-pointer"
+      />
+    </Link>
+  </div>
+  <Toaster />
+</div>
   )
 }
 
