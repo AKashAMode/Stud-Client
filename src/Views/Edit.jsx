@@ -37,7 +37,7 @@ const editStudent = async () => {
 const loadStudents = async  () => {
 
     try{
-      const response = await axios.get(`http://localhost:5001/student/${userId}`);
+      const response = await axios.get(`https://backend-student-server.onrender.com/student/${userId}`);
       setStudent(response.data.data); 
     }catch(e){
         toast.error(e.response.data.message)
