@@ -15,7 +15,7 @@ const Add = () => {
     const addStudent = async ()=> {
      
         try{    
-        const response = await axios.post("http://localhost:5001/student", {
+        const response = await axios.post("https://backend-student-server.onrender.com/student", {
             id:student.id,
             name:student.name,
             city:student.city
